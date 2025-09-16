@@ -1,0 +1,32 @@
+client_id = "6b71ea0a8bb5ba935e6f59db7086d94f"
+name = "Guardians of The Shop"
+handle = "guardians-of-the-shop"
+application_url = "https://gots.zallomah.com"
+embedded = true
+
+[build]
+include_config_on_deploy = true
+
+[webhooks]
+api_version = "2025-10"
+
+[[webhooks.subscriptions]]
+topics = ["app/scopes_update"]
+uri = "/webhooks/app/scopes_update"
+
+[[webhooks.subscriptions]]
+topics = ["app/uninstalled"]
+uri = "/webhooks/app/uninstalled"
+
+[access_scopes]
+scopes = "read_themes,write_themes"
+
+[auth]
+redirect_urls = [
+  "https://gots.zallomah.com/auth/callback",
+  "https://gots.zallomah.com/auth/shopify/callback",
+  "https://gots.zallomah.com/api/auth/callback",
+]
+
+[pos]
+embedded = false

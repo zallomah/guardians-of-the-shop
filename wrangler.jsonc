@@ -1,0 +1,38 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "gots",
+  "workers_dev": false,
+  "preview_urls": false,
+  "compatibility_date": "2025-05-28",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "./workers/server.ts",
+
+  "observability": {
+    "enabled": true,
+  },
+
+  "vars": {
+    "SHOPIFY_APP_URL": "https://gots.zallomah.com",
+  },
+
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./build/client",
+  },
+
+  "kv_namespaces": [
+    {
+      "binding": "SESSIONS",
+      "id": "51e1b74eaa084a6a9d2abb228d5ac914",
+    },
+  ],
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "gots",
+      "database_id": "ae58acdb-bdaf-411b-82e5-3a9481be138d",
+      "migrations_dir": "drizzle",
+    },
+  ],
+}
