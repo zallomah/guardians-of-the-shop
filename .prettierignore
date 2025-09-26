@@ -1,0 +1,10 @@
+package.json
+.vscode
+node_modules
+public/*
+!public/locales
+.react-router
+.shopify
+pnpm-lock.yaml
+app/graphql/types
+worker-configuration.d.ts

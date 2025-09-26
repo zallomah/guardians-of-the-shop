@@ -1,0 +1,31 @@
+.DS_Store
+/node_modules/
+*.tsbuildinfo
+
+# React Router
+/.react-router/
+/build/
+/dist/
+
+# Cloudflare
+.mf
+.wrangler
+.dev.vars*
+worker-configuration.d.ts
+
+!.dev.vars.example
+.env*
+!.env.example
+
+# Shopify
+.shopify/
+.shopify.lock
+shopify.app.dev.toml
+
+# Lockfiles
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Scratchpad
+.changes

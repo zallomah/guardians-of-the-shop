@@ -1,0 +1,68 @@
+{
+  "name": "guardians-of-the-shop",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm run sh:dev",
+    "build": "react-router build",
+    "graphql": "graphql-codegen",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
+    "rr:dev": "react-router dev",
+    "rr:typegen": "react-router typegen",
+    "sh:dev": "shopify app dev -c shopify.app.dev.toml",
+    "sh:deploy": "shopify app deploy -c shopify.app.toml",
+    "sh:release": "shopify app release -c shopify.app.toml",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "wrangler d1 migrations apply DB",
+    "db:sync": "wrangler d1 migrations apply DB --remote",
+    "cf:typegen": "wrangler types",
+    "cf:deploy": "wrangler deploy",
+    "cf:release": "pnpm run build && pnpm run db:sync && pnpm run cf:deploy",
+    "preview": "pnpm run build && vite preview"
+  },
+  "dependencies": {
+    "@shopify/app-bridge-react": "4.2.2",
+    "@shopify/polaris-icons": "9.3.1",
+    "@shopify/shopify-app-react-router": "0.1.1",
+    "@shopify/shopify-app-session-storage-kv": "4.0.20",
+    "drizzle-orm": "0.44.5",
+    "i18next": "25.5.2",
+    "i18next-browser-languagedetector": "8.2.0",
+    "i18next-http-backend": "3.0.2",
+    "isbot": "5.1.30",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-i18next": "15.7.3",
+    "react-router": "7.9.1"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.12.1",
+    "@react-router/dev": "7.9.1",
+    "@shopify/api-codegen-preset": "1.1.9",
+    "@shopify/app-bridge-ui-types": "0.3.2",
+    "@types/debug": "4.1.12",
+    "@types/node": "20.19.11",
+    "@types/react": "18.3.24",
+    "@types/react-dom": "18.3.7",
+    "debug": "4.4.1",
+    "drizzle-kit": "0.31.4",
+    "eslint": "9.34.0",
+    "eslint-import-resolver-typescript": "4.4.4",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "5.2.0",
+    "prettier": "3.6.2",
+    "typescript": "5.9.2",
+    "typescript-eslint": "8.41.0",
+    "vite": "6.3.5",
+    "vite-tsconfig-paths": "5.1.4",
+    "wrangler": "4.33.1"
+  },
+  "workspaces": {
+    "packages": [
+      "extensions/*"
+    ]
+  },
+  "packageManager": "pnpm@10.14.0+sha512.ad27a79641b49c3e481a16a805baa71817a04bbe06a38d17e60e2eaee83f6a146c6a688125f5792e48dd5ba30e7da52a5cda4c3992b9ccf333f9ce223af84748"
+}
